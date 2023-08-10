@@ -1,4 +1,4 @@
-<h1>Nome da loja</h1><br>
+<h1>Nome da loja </h1><br>
 
 <b>Breve descrição sobre a loja</b><br>
 - Explicar o que tem dentro da loja, texto somente na explicação da loja<br>
