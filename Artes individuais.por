@@ -43,7 +43,6 @@ programa
 		escreva("Livro: ", titulo, "\n")
 		escreva("Autor(a): ", autor, "\n")
 		escreva("Preço(a): ", valor, "\n")
-		//escreva("________________________\n")
 	}
 
 	funcao desenhaCategoria(cadeia categoria, cadeia icone) {
@@ -56,10 +55,6 @@ programa
 		escreva(" /________//\n")
 		escreva("(________(/\n")
 		escreva("\n")
-		//escreva(autorLivro+"\n\n")
-		//escreva(preco)
-		//escreva("\n")
-		//escreva("________________________________________\n\n")
 	}
 
 
@@ -72,7 +67,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1354; 
+ * @POSICAO-CURSOR = 1952; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
