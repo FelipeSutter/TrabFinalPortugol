@@ -1,4 +1,4 @@
-programa {
+programa {
 	
 	inclua biblioteca Util --> u
 
@@ -35,38 +35,149 @@ programa {
 		} enquanto(valor < 1 ou valor > 4)
 		retorne valor
 	}
+
+	funcao inteiro mostrarProdutos() {
+		
+		inteiro numero
+		faca{
+			escreva("Escolha entre os livros:\n1-livro1\n2-livro2\n3-livro3\n4-Sair\n")
+          	leia(numero)
+          	se(numero < 1 ou numero > 4) {
+          		escreva("Opção invalida!\n")
+          	}	
+		} enquanto(numero < 1 ou numero > 4)
+		retorne numero
+	}
 	
-	funcao inicio() {
+	funcao inicio() {
 	
 		logico verifica = verdadeiro
-		cadeia produto[3][3]
+		logico verifica1 = verdadeiro
+		logico verifica2 = verdadeiro
+		logico verifica3 = verdadeiro
+		cadeia categoria1[3] = {"livro1Catg1", "livro2Categ1", "livro3Catg1"}
+		cadeia categoria2[3] = {"livro1Catg2", "livro2Categ2", "livro3Catg2"}
+		cadeia categoria3[3] = {"livro1Catg3", "livro2Categ3", "livro3Catg3"}
 		folhearPaginas()
 		enquanto(verifica) {
 			escolha(menuPrincipal()) {
 			
 				caso 1:
-				escreva("Eu sou a Lenda.\n") //funcao mostrarProduto()
-				u.aguarde(2000)
+				enquanto(verifica1) {
+					escolha(mostrarProdutos()) {
+						caso 1:
+							escreva("Você escolheu o ", categoria1[0],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 2:
+							escreva("Você escolheu o ", categoria1[1],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 3:
+							escreva("Você escolheu o ", categoria1[2],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 4:
+							limpa()
+							folhearPaginas()
+							verifica1 = falso
+						pare
+					}
+				}
 				limpa()
 				pare
 
 				caso 2:
-				escreva("Dragon Ball Z.\n") //funcao mostrarProduto()
-				u.aguarde(2000)
+				enquanto(verifica2) {
+					escolha(mostrarProdutos()) {
+						caso 1:
+							escreva("Você escolheu o ", categoria2[0],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 2:
+							escreva("Você escolheu o ", categoria2[1],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 3:
+							escreva("Você escolheu o ", categoria2[2],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 4:
+							limpa()
+							folhearPaginas()
+							verifica2 = falso
+						pare
+					}
+				}
 				limpa()
 				pare
 
 				caso 3:
-				escreva("Harry Potter e o Prisioneiro de Azkaban.\n") //funcao mostrarProduto()
-				u.aguarde(2000)
+				enquanto(verifica3) {
+					escolha(mostrarProdutos()) {
+						caso 1:
+							escreva("Você escolheu o ", categoria3[0],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 2:
+							escreva("Você escolheu o ", categoria3[1],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 3:
+							escreva("Você escolheu o ", categoria3[2],"\n")
+							escreva("Esse livro fala sobre isso\n")
+							escreva("Estoque: 5\n")
+							escreva("Preço R$\n")
+							escreva("Digite:\n1- Para concluir a compra\n2- Para voltar ao menu anterior\n")
+						pare//funcao mostrarProduto()
+
+						caso 4:
+							limpa()
+							folhearPaginas()
+							verifica3 = falso
+						pare
+					}
+				}
 				limpa()
 				pare
 
 				caso 4:
-				escreva("Obrigado por utilizar a nossa biblioteca! Volte sempre.\n")
-				u.aguarde(2000)
-				limpa()
-				verifica = falso //função login()
+					escreva("Obrigado por utilizar a nossa biblioteca! Volte sempre.\n")
+					u.aguarde(2000)
+					limpa()
+					verifica = falso //função login()
 				pare
 
 				caso contrario:
@@ -80,7 +191,7 @@ programa {
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 551; 
+ * @POSICAO-CURSOR = 5150; 
  * @DOBRAMENTO-CODIGO = [4];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
