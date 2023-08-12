@@ -100,24 +100,21 @@ programa {
 	funcao inicio() {
 	
 		logico verifica = verdadeiro
-		cadeia categoria1[3] = {"livro1Catg1", "livro2Categ1", "livro3Catg1"}
-		cadeia categoria2[3] = {"livro1Catg2", "livro2Categ2", "livro3Catg2"}
-		cadeia categoria3[3] = {"livro1Catg3", "livro2Categ3", "livro3Catg3"}
 		folhearPaginas()
 		inteiro opcao
 		enquanto(verifica) {
 			escolha(menuPrincipal()) {
 				caso 1:
-				escreva("CATEGORIA: \n\n") // opcao 1
-				escreva("TECNOLOGIA\n")
-				para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i])
-					u.aguarde(1000)
-				}
-				escreva("_________________________________________________________________________\n\n")
-				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
-				escreva("\nDigite a sua opção: ")
-				leia(opcao)
+				  escreva("CATEGORIA: \n\n") // opcao 1
+				  escreva("TECNOLOGIA\n")
+				  para (inteiro i = 0; i < tamanhoListaLivros; i++){
+					  desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i])
+					  u.aguarde(1000)
+				  }
+				  escreva("_________________________________________________________________________\n\n")
+				  escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
+				  escreva("\nDigite a sua opção: ")
+				  leia(opcao)
 
 					enquanto(opcao < 1 ou opcao > 4){
 						escreva("Opção invalida!\n")
@@ -148,25 +145,24 @@ programa {
 						limpa()
 						folhearPaginas()
 					}	
-				
 			 		pare
 			 	
 				caso 2:
-				escreva("CATEGORIA: \n\n") // opcao 2
-				escreva("MANGÁ\n")
-				para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i])
-				}
-				escreva("_________________________________________________________________________\n\n")
-				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatB[0],"\n2 - ", livrosCatB[1], "\n3 - ", livrosCatB[2], "\n4 - Sair")
-				escreva("\nDigite a sua opção: ")
-				leia(opcao)
-					enquanto(opcao < 1 ou opcao > 4){
-						escreva("Opção invalida!\n")
-						escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
-						escreva("\nDigite a sua opção: ")
-						leia(opcao)		
-					}
+				  escreva("CATEGORIA: \n\n") // opcao 2
+				  escreva("MANGÁ\n")
+				  para (inteiro i = 0; i < tamanhoListaLivros; i++){
+					  desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i])
+				  }
+				  escreva("_________________________________________________________________________\n\n")
+				  escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatB[0],"\n2 - ", livrosCatB[1], "\n3 - ", livrosCatB[2], "\n4 - Sair")
+				  escreva("\nDigite a sua opção: ")
+				  leia(opcao)
+					  enquanto(opcao < 1 ou opcao > 4){
+						  escreva("Opção invalida!\n")
+						  escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
+						  escreva("\nDigite a sua opção: ")
+						  leia(opcao)		
+					  }
 					se(opcao == 1){
 						escreva("Você comprou o livro ",livrosCatB[0],"\nAguarde!Você será direcionado para o menu inicial.")
 						u.aguarde(5000)
@@ -189,19 +185,18 @@ programa {
 						limpa()
 						folhearPaginas()
 					}
-				
 					pare
 
 				caso 3:
-				escreva("\nCATEGORIA: \n\n") // opcao 3
-				escreva("FILOSOFIA\n")
-				para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i])
-				}
-				escreva("_________________________________________________________________________\n\n")
-				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
-				escreva("\nDigite a sua opção: ")
-				leia(opcao)
+				  escreva("\nCATEGORIA: \n\n") // opcao 3
+				  escreva("FILOSOFIA\n")
+				  para (inteiro i = 0; i < tamanhoListaLivros; i++){
+					  desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i])
+				  }
+				  escreva("_________________________________________________________________________\n\n")
+				  escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
+				  escreva("\nDigite a sua opção: ")
+				  leia(opcao)
 					enquanto(opcao < 1 ou opcao > 4){
 						escreva("Opção invalida!\n")
 						escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
@@ -230,9 +225,7 @@ programa {
 						limpa()
 						folhearPaginas()
 					}
-					
-				
-					pare//funcao mostrarProduto()
+					pare
 
 				caso 4:
 					folhearPaginas()
@@ -248,14 +241,3 @@ programa {
 		}
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 8741; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
