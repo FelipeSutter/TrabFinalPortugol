@@ -3,6 +3,7 @@ programa {
 	inclua biblioteca Util --> u
 	inclua biblioteca Teclado --> t
 	inclua biblioteca Texto --> x
+	inclua biblioteca Tipos --> ti
 	
 	const inteiro tamanhoListaLivros = 3
 	
@@ -31,7 +32,7 @@ programa {
 	}
 
 	funcao inteiro menuPrincipal() {
-		inteiro valor
+		cadeia valor
 		faca {
 			limpa()
 			escreva("+--------------------------------------------+\n")
@@ -47,12 +48,17 @@ programa {
 			escreva("Digite a sua categoria desejada: ")
 			leia(valor)
 			limpa()
-			se(valor < 1 ou valor > 4) {
-      			escreva("Voce escolheu uma opção invalida. Por favor, escolha uma das opções apresentadas.\n")
+			se(ti.cadeia_e_inteiro(valor,10) == falso) {
+				escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
+				folhearPaginas()
+				u.aguarde(500)
+			}
+			senao se(ti.cadeia_para_inteiro(valor,10) < 1 ou ti.cadeia_para_inteiro(valor,10) > 4) {
+      			escreva("Voce escolheu um número inválido. Por favor, escolha uma das opções apresentadas.\n")
 				u.aguarde(2000)
       		}
-		} enquanto(valor < 1 ou valor > 4)
-		retorne valor
+		} enquanto(ti.cadeia_e_inteiro(valor,10) == falso)
+		retorne ti.cadeia_para_inteiro(valor,10)
 	}
 
 	funcao inteiro mostrarProdutos() {
@@ -101,131 +107,182 @@ programa {
 	
 		logico verifica = verdadeiro
 		folhearPaginas()
-		inteiro opcao
+		cadeia opcao
 		enquanto(verifica) {
 			escolha(menuPrincipal()) {
 				caso 1:
-				  escreva("CATEGORIA: \n\n") // opcao 1
-				  escreva("TECNOLOGIA\n")
-				  para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					  desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i])
-					  u.aguarde(1000)
-				  }
-				  escreva("_________________________________________________________________________\n\n")
-				  escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
-				  escreva("\nDigite a sua opção: ")
-				  leia(opcao)
-
-					enquanto(opcao < 1 ou opcao > 4){
-						escreva("Opção invalida!\n")
-						escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
-						escreva("\nDigite a sua opção: ")
-						leia(opcao)		
+				escreva("CATEGORIA: \n\n") // opcao 1
+				escreva("TECNOLOGIA\n")
+				para (inteiro i = 0; i < tamanhoListaLivros; i++){
+					desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i])
+					u.aguarde(2000)
+				}
+				escreva("_________________________________________________________________________\n\n")
+				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
+				escreva("\nDigite a sua opção: ")
+				leia(opcao)
+					enquanto((ti.cadeia_e_inteiro(opcao,10) == falso) ou (ti.cadeia_para_inteiro(opcao,10) < 1) ou (ti.cadeia_para_inteiro(opcao,10) > 4)) {
+					
+						se(ti.cadeia_e_inteiro(opcao,10) == falso){
+							escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
+							u.aguarde(2000)
+							limpa()
+							escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
+							escreva("\nDigite a sua opção: ")
+							leia(opcao)	
+						}
+						senao se(ti.cadeia_para_inteiro(opcao,10) < 1 ou ti.cadeia_para_inteiro(opcao,10) > 4){
+							limpa()
+							escreva("Você digitou um número inválido!\n")
+							escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
+							escreva("\nDigite a sua opção: ")
+							leia(opcao)	
+						}
 					}
 				
-					se(opcao == 1){
-						escreva("Você comprou o livro ",livrosCatA[0],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+					se(ti.cadeia_para_inteiro(opcao,10) == 1){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatA[0],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 2){
-						escreva("Você comprou o livro ",livrosCatA[1],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 2){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatA[1],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 3){
-						escreva("Você comprou o livro ",livrosCatA[2],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 3){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatA[2],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 4){
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 4){
 						limpa()
 						folhearPaginas()
-					}	
+					}
+				
 			 		pare
 			 	
 				caso 2:
-				  escreva("CATEGORIA: \n\n") // opcao 2
-				  escreva("MANGÁ\n")
-				  para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					  desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i])
-				  }
-				  escreva("_________________________________________________________________________\n\n")
-				  escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatB[0],"\n2 - ", livrosCatB[1], "\n3 - ", livrosCatB[2], "\n4 - Sair")
-				  escreva("\nDigite a sua opção: ")
-				  leia(opcao)
-					  enquanto(opcao < 1 ou opcao > 4){
-						  escreva("Opção invalida!\n")
-						  escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
-						  escreva("\nDigite a sua opção: ")
-						  leia(opcao)		
-					  }
-					se(opcao == 1){
-						escreva("Você comprou o livro ",livrosCatB[0],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+				escreva("CATEGORIA: \n\n") // opcao 2
+				escreva("MANGÁ\n")
+				para (inteiro i = 0; i < tamanhoListaLivros; i++){
+					desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i])
+					u.aguarde(2000)
+				}
+				escreva("_________________________________________________________________________\n\n")
+				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatB[0],"\n2 - ", livrosCatB[1], "\n3 - ", livrosCatB[2], "\n4 - Sair")
+				escreva("\nDigite a sua opção: ")
+				leia(opcao)
+					enquanto((ti.cadeia_e_inteiro(opcao,10) == falso) ou (ti.cadeia_para_inteiro(opcao,10) < 1) ou (ti.cadeia_para_inteiro(opcao,10) > 4)) {
+					
+						se(ti.cadeia_e_inteiro(opcao,10) == falso){
+							escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
+							u.aguarde(2000)
+							limpa()
+							escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatB[0],"\n2 - ", livrosCatB[1], "\n3 - ", livrosCatB[2], "\n4 - Sair")
+							escreva("\nDigite a sua opção: ")
+							leia(opcao)	
+						}
+						senao se(ti.cadeia_para_inteiro(opcao,10) < 1 ou ti.cadeia_para_inteiro(opcao,10) > 4){
+							limpa()
+							escreva("Você digitou um número inválido!\n")
+							escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatB[0],"\n2 - ", livrosCatB[1], "\n3 - ", livrosCatB[2], "\n4 - Sair")
+							escreva("\nDigite a sua opção: ")
+							leia(opcao)	
+						}
+					}
+					
+					se(ti.cadeia_para_inteiro(opcao,10) == 1){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatB[0],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 2){
-						escreva("Você comprou o livro ",livrosCatB[1],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 2){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatB[1],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 3){
-						escreva("Você comprou o livro ",livrosCatB[2],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 3){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatB[2],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 4){
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 4){
 						limpa()
 						folhearPaginas()
 					}
 					pare
 
 				caso 3:
-				  escreva("\nCATEGORIA: \n\n") // opcao 3
-				  escreva("FILOSOFIA\n")
-				  para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					  desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i])
-				  }
-				  escreva("_________________________________________________________________________\n\n")
-				  escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
-				  escreva("\nDigite a sua opção: ")
-				  leia(opcao)
-					enquanto(opcao < 1 ou opcao > 4){
-						escreva("Opção invalida!\n")
-						escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
-						escreva("\nDigite a sua opção: ")
-						leia(opcao)		
+				escreva("\nCATEGORIA: \n\n") // opcao 3
+				escreva("FILOSOFIA\n")
+				para (inteiro i = 0; i < tamanhoListaLivros; i++){
+					desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i])
+					u.aguarde(2000)
+				}
+				escreva("_________________________________________________________________________\n\n")
+				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
+				escreva("\nDigite a sua opção: ")
+				leia(opcao)
+					enquanto((ti.cadeia_e_inteiro(opcao,10) == falso) ou (ti.cadeia_para_inteiro(opcao,10) < 1) ou (ti.cadeia_para_inteiro(opcao,10) > 4)) {
+					
+						se(ti.cadeia_e_inteiro(opcao,10) == falso){
+							escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
+							u.aguarde(2000)
+							limpa()
+							escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
+							escreva("\nDigite a sua opção: ")
+							leia(opcao)
+						}
+						senao se(ti.cadeia_para_inteiro(opcao,10) < 1 ou ti.cadeia_para_inteiro(opcao,10) > 4){
+							limpa()
+							escreva("Você digitou um número inválido!\n")
+							escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
+							escreva("\nDigite a sua opção: ")
+							leia(opcao)	
+						}
 					}
-					se(opcao == 1){
-						escreva("Você comprou o livro ",livrosCatC[0],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+					
+					se(ti.cadeia_para_inteiro(opcao,10) == 1){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatC[0],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 2){
-						escreva("Você comprou o livro ",livrosCatC[1],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 2){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatC[1],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 3){
-						escreva("Você comprou o livro ",livrosCatC[2],"\nAguarde!Você será direcionado para o menu inicial.")
-						u.aguarde(5000)
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 3){
+						limpa()
+						escreva("Você comprou o livro ",livrosCatC[2],"\nAguarde! Você será direcionado para o menu inicial.")
+						u.aguarde(3000)
 						limpa()
 						folhearPaginas()
 					}
-					senao se(opcao == 4){
+					senao se(ti.cadeia_para_inteiro(opcao,10) == 4){
 						limpa()
 						folhearPaginas()
 					}
-					pare
+					
+				
+					pare//funcao mostrarProduto()
 
 				caso 4:
 					folhearPaginas()
@@ -234,9 +291,6 @@ programa {
 					limpa()
 					verifica = falso //função login()
 				pare
-				
-				caso contrario:
-				escreva("Hey, você está tentando burlar o sistema!")
 			}
 		}
 	}
