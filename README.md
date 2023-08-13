@@ -1,5 +1,9 @@
 
-<h1>Tech Books</h1>
+<h1 align="center"> 👉 Bem vindos à Tech Books! 👈</h1>
+
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" height="80" width="80" />
+          
 
 Um projeto que permite ao usuário entrar na livraria e escolher o livro desejado entre as categorias disponiveis.
 
