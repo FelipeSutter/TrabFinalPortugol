@@ -98,7 +98,7 @@ programa {
 		cadeia valor
 		faca {
 			limpa()
-			escreva("\nUsuário logado como: ", usuario,"\n\n")
+			escreva("\nUsuário logado como: ", usuario,"!\n\n")
 			escreva("+---------------------------------------------------+\n")
 			escreva("! Bem-vindo(a) à livraria Tech Books!               !\n")
 			escreva("!---------------------------------------------------!\n")
@@ -168,11 +168,12 @@ programa {
 	}
 
 	funcao logico validarEntrada() {
-		cadeia opcao
+		caracter opcao
 		escreva("Deseja ter a melhor experiência literária da sua vida? S/N\n")
 		escreva("Digite o que o seu coração mandar: ")
 		leia(opcao)
-		se(opcao == "S" ou opcao == "s") {
+		//ti.cadeia_para_caracter(opcao) == 's' ou ti.cadeia_para_caracter(opcao) == 'S'
+		se(opcao == 's' ou opcao == 'S') {
 			retorne verdadeiro
 		}
 		senao {
@@ -191,9 +192,10 @@ programa {
 		u.aguarde(1500)
 		folhearPaginas()
 		limpa()
-		enquanto(validarEntrada() == verdadeiro) {
+		enquanto(validarEntrada() == verdadeiro) { 
 			enquanto(verifica1) {
 				login()
+				verifica = verdadeiro
 	     		enquanto(controlador == falso){	
 	  				para(inteiro i=0; i<5; i++){
    	  					se(usuario == matrizLogins[i][0] e senha == matrizLogins[i][1]){
@@ -414,9 +416,9 @@ programa {
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6354; 
+ * @POSICAO-CURSOR = 6310; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {controlador, 187, 9, 11};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
