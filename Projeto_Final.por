@@ -98,16 +98,17 @@ programa {
 		cadeia valor
 		faca {
 			limpa()
-			escreva("+--------------------------------------------+\n")
-			escreva("! Bem-vindo(a) à livraria Tech Books.        !\n")
-			escreva("!--------------------------------------------!\n")
-			escreva("! Opções disponíveis:                        !\n")
-			escreva("!					     !\n")
-			escreva("! 1. Tecnologia             		     !\n")
-			escreva("! 2. Mangá             			     !\n")
-			escreva("! 3. Filosofia		                     !\n")
-			escreva("! 4. Sair da livraria		             !\n")
-			escreva("+--------------------------------------------+\n\n")
+			escreva("\nUsuário logado como: ", usuario,"\n\n")
+			escreva("+---------------------------------------------------+\n")
+			escreva("! Bem-vindo(a) à livraria Tech Books!               !\n")
+			escreva("!---------------------------------------------------!\n")
+			escreva("! Opções disponíveis:                               !\n")
+			escreva("!					            !\n")
+			escreva("! 1. Tecnologia             		            !\n")
+			escreva("! 2. Mangá             			            !\n")
+			escreva("! 3. Filosofia		                            !\n")
+			escreva("! 4. Sair da livraria		                    !\n")
+			escreva("+---------------------------------------------------+\n\n")
 			escreva("Digite a sua categoria desejada: ")
 			leia(valor)
 			limpa()
@@ -166,25 +167,40 @@ programa {
 		escreva("'---'\n")
 	}
 
-	
+	funcao logico validarEntrada() {
+		cadeia opcao
+		escreva("Deseja ter a melhor experiência literária da sua vida? S/N\n")
+		escreva("Digite o que o seu coração mandar: ")
+		leia(opcao)
+		se(opcao == "S" ou opcao == "s") {
+			retorne verdadeiro
+		}
+		senao {
+			escreva("Obrigado pelo seu interesse!\n")
+			retorne falso
+		}
+	}
 	
 	funcao inicio() {
 
 		logico controlador = falso
 		logico verifica = verdadeiro
+		logico verifica1 = verdadeiro
 		cadeia opcao
 		desenhaLogo()
 		u.aguarde(1500)
 		folhearPaginas()
 		limpa()
-		login()
-	     enquanto(controlador == falso){	
-	  		para(inteiro i=0; i<5; i++){
-   	  			se(usuario == matrizLogins[i][0] e senha == matrizLogins[i][1]){
-   					usuario2 = usuario
-   					senha2 = senha
-	        		}
-	  		}
+		enquanto(validarEntrada() == verdadeiro) {
+			enquanto(verifica1) {
+				login()
+	     		enquanto(controlador == falso){	
+	  				para(inteiro i=0; i<5; i++){
+   	  					se(usuario == matrizLogins[i][0] e senha == matrizLogins[i][1]){
+   							usuario2 = usuario
+   							senha2 = senha
+	        				}
+	  				}
 
 					/*para(inteiro i=0; i<1; i++){
    	  					se(x.numero_caracteres(senha) < ti.cadeia_para_inteiro(matrizLogins[i][1],10)){
@@ -193,29 +209,29 @@ programa {
 	        				}
 	  				}*/
 	  			
-	   	    se(usuario2 != "" e senha2 !=""){
-	        		escreva("Seja bem vindo(a), ",usuario2)
-	        		controlador=verdadeiro
-	        	}
-	        	senao {
-	        		escreva("Usuario ou senha incorretas!\n")
-	        		login()
+	   	     	se(usuario2 != "" e senha2 !=""){
+	        			escreva("Seja bem vindo(a), ",usuario2)
+	        			controlador=verdadeiro
 	        		}
-	        	}
+	        		senao {
+	        			escreva("Usuario ou senha incorretas!\n")
+	        			login()
+	        			}
+	        		}
 		
-		enquanto(verifica) {
-			escolha(menuPrincipal()) {
-				caso 1:
-				escreva("CATEGORIA: \n\n") // opcao 1
-				escreva("TECNOLOGIA\n")
-				para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i])
-					u.aguarde(2000)
-				}
-				escreva("_________________________________________________________________________\n\n")
-				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
-				escreva("\nDigite a sua opção: ")
-				leia(opcao)
+			enquanto(verifica) {
+				escolha(menuPrincipal()) {
+					caso 1:
+					escreva("CATEGORIA: \n\n") // opcao 1
+					escreva("TECNOLOGIA\n")
+					para (inteiro i = 0; i < tamanhoListaLivros; i++){
+						desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i])
+						u.aguarde(2000)
+					}
+					escreva("_________________________________________________________________________\n\n")
+					escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
+					escreva("\nDigite a sua opção: ")
+					leia(opcao)
 					enquanto((ti.cadeia_e_inteiro(opcao,10) == falso) ou (ti.cadeia_para_inteiro(opcao,10) < 1) ou (ti.cadeia_para_inteiro(opcao,10) > 4)) {
 					
 						se(ti.cadeia_e_inteiro(opcao,10) == falso){
@@ -263,17 +279,17 @@ programa {
 				
 			 		pare
 			 	
-				caso 2:
-				escreva("CATEGORIA: \n\n") // opcao 2
-				escreva("MANGÁ\n")
-				para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i])
-					u.aguarde(2000)
-				}
-				escreva("_________________________________________________________________________\n\n")
-				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatB[0],"\n2 - ", livrosCatB[1], "\n3 - ", livrosCatB[2], "\n4 - Sair")
-				escreva("\nDigite a sua opção: ")
-				leia(opcao)
+					caso 2:
+					escreva("CATEGORIA: \n\n") // opcao 2
+					escreva("MANGÁ\n")
+					para (inteiro i = 0; i < tamanhoListaLivros; i++){
+						desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i])
+						u.aguarde(2000)
+					}
+					escreva("_________________________________________________________________________\n\n")
+					escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatB[0],"\n2 - ", livrosCatB[1], "\n3 - ", livrosCatB[2], "\n4 - Sair")
+					escreva("\nDigite a sua opção: ")
+					leia(opcao)
 					enquanto((ti.cadeia_e_inteiro(opcao,10) == falso) ou (ti.cadeia_para_inteiro(opcao,10) < 1) ou (ti.cadeia_para_inteiro(opcao,10) > 4)) {
 					
 						se(ti.cadeia_e_inteiro(opcao,10) == falso){
@@ -320,17 +336,17 @@ programa {
 					}
 					pare
 
-				caso 3:
-				escreva("\nCATEGORIA: \n\n") // opcao 3
-				escreva("FILOSOFIA\n")
-				para (inteiro i = 0; i < tamanhoListaLivros; i++){
-					desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i])
-					u.aguarde(2000)
-				}
-				escreva("_________________________________________________________________________\n\n")
-				escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
-				escreva("\nDigite a sua opção: ")
-				leia(opcao)
+					caso 3:
+					escreva("\nCATEGORIA: \n\n") // opcao 3
+					escreva("FILOSOFIA\n")
+					para (inteiro i = 0; i < tamanhoListaLivros; i++){
+						desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i])
+						u.aguarde(2000)
+					}
+					escreva("_________________________________________________________________________\n\n")
+					escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
+					escreva("\nDigite a sua opção: ")
+					leia(opcao)
 					enquanto((ti.cadeia_e_inteiro(opcao,10) == falso) ou (ti.cadeia_para_inteiro(opcao,10) < 1) ou (ti.cadeia_para_inteiro(opcao,10) > 4)) {
 					
 						se(ti.cadeia_e_inteiro(opcao,10) == falso){
@@ -377,15 +393,18 @@ programa {
 					}
 					
 				
-					pare//funcao mostrarProduto()
+					pare
 
-				caso 4:
-					folhearPaginas()
-					escreva("Obrigado por utilizar a nossa biblioteca! Volte sempre.\n")
-					u.aguarde(2000)
-					limpa()
-					verifica = falso //função login()
-				pare
+					caso 4:
+						escreva("Obrigado por utilizar a nossa biblioteca! Volte sempre.\n")
+						u.aguarde(2000)
+						folhearPaginas()
+						limpa()
+						controlador = falso
+						verifica = falso
+					pare
+					}
+				}
 			}
 		}
 	}
@@ -395,7 +414,7 @@ programa {
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6252; 
+ * @POSICAO-CURSOR = 6354; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
