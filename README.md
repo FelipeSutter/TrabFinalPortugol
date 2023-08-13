@@ -7,9 +7,9 @@
 
 Um projeto que permite ao usuário entrar na livraria e escolher o livro desejado entre as categorias disponiveis.
 
-* Escolha entre Tecnologia, Mangá e Filosofia!
+* <i>Escolha entre Tecnologia, Mangá e Filosofia!</i>
 
-* Um sistema de menus intuitivos e organizados.
+* <i>Um sistema de menus intuitivos e organizados.</i>
 
 
 ## 🔗 Links
@@ -21,11 +21,8 @@ Um projeto que permite ao usuário entrar na livraria e escolher o livro desejad
 
 Desenvolvemos o projeto, com o Portugol Studio, utilizando:
 
-Variáveis, Operadores Lógicos, Laços de repetição e Vetores.
-
-Foram utilizadas as seguintes bibliotecas:
-
-Util, Teclado e Texto.
+* <i>Variáveis, Operadores Lógicos, Laços de repetição e Vetores.</i>
+* <i>Util, Teclado e Texto.</i>
 
 
 ## Autores
