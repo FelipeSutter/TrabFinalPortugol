@@ -11,6 +11,9 @@ programa {
 	cadeia autorLivrosCatA[tamanhoListaLivros] = {"Robert Cecil Martin.","Tom Taulli.", "Elizabeth Castro."}
 	cadeia valorLivrosCatA[tamanhoListaLivros] = {"R$ 91,99.", "R$ 68,49.", "R$ 109,27."}
 	cadeia tituloLivroCatA[tamanhoListaLivros] = {"CLI", "IIA", "HTM"}
+	// cadeia descricaoLivroA[tamanhoListaLivros] = 
+	// cadeia estoqueLivroA[tamanhoListaLivros] = 
+	
 	
 	cadeia livrosCatB[tamanhoListaLivros] = {"Akira (Vol. #1.)", "Dragon Ball Super (Vol. #1.)", "Card Captor Sakura (Vol. #2.)"}
 	cadeia autorLivrosCatB[tamanhoListaLivros] = {"Katsuhiro Otomo.", "Akira Toriyama.", "Nanase Ohkawa."}
@@ -168,31 +171,43 @@ programa {
 	}
 
 	funcao logico validarEntrada() {
-		caracter opcao
-		escreva("Deseja ter a melhor experiência literária da sua vida? S/N\n")
-		escreva("Digite o que o seu coração mandar: ")
-		leia(opcao)
-		//ti.cadeia_para_caracter(opcao) == 's' ou ti.cadeia_para_caracter(opcao) == 'S'
-		se(opcao == 's' ou opcao == 'S') {
-			retorne verdadeiro
-		}
-		senao {
-			escreva("Obrigado pelo seu interesse!\n")
-			retorne falso
-		}
+		cadeia opcao
+		logico valida = falso
+		faca {
+			escreva("Deseja ter a melhor experiência literária da sua vida? S/N\n")
+			escreva("Digite o que o seu coração mandar: ")
+			leia(opcao)
+			se(ti.cadeia_e_caracter(opcao) == falso) {
+				escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
+				u.aguarde(2000)
+				limpa()
+				folhearPaginas()
+				limpa()
+				valida = falso
+			}
+			senao se(ti.cadeia_para_caracter(opcao) == 's' ou ti.cadeia_para_caracter(opcao) == 'S') {
+				valida = verdadeiro
+			}
+			senao se(ti.cadeia_para_caracter(opcao) == 'n' ou ti.cadeia_para_caracter(opcao) == 'N') {
+				escreva("Obrigado pelo seu interesse!\n")
+				valida = falso
+			}
+		} enquanto(ti.cadeia_e_caracter(opcao) == falso)
+		retorne valida
 	}
 	
 	funcao inicio() {
 
 		logico controlador = falso
-		logico verifica = verdadeiro
-		logico verifica1 = verdadeiro
+		logico verifica = falso
+		logico verifica1 = falso
 		cadeia opcao
 		desenhaLogo()
 		u.aguarde(1500)
 		folhearPaginas()
 		limpa()
-		enquanto(validarEntrada() == verdadeiro) { 
+		enquanto(validarEntrada() == verdadeiro) {
+			verifica1 = verdadeiro
 			enquanto(verifica1) {
 				login()
 				verifica = verdadeiro
@@ -364,7 +379,7 @@ programa {
 							escreva("Você digitou um número inválido!\n")
 							escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatC[0],"\n2 - ", livrosCatC[1], "\n3 - ", livrosCatC[2], "\n4 - Sair")
 							escreva("\nDigite a sua opção: ")
-							leia(opcao)	
+							leia(opcao)
 						}
 					}
 					
@@ -404,6 +419,7 @@ programa {
 						limpa()
 						controlador = falso
 						verifica = falso
+						verifica1 = falso
 					pare
 					}
 				}
@@ -416,9 +432,9 @@ programa {
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6310; 
+ * @POSICAO-CURSOR = 6792; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {controlador, 187, 9, 11};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
