@@ -2,10 +2,6 @@
 <h1 align="center"> 📚 Bem vindos à Tech Books! 📚</h1>
 <base target="_blank">
 
-
-          
-          
-
 Um projeto que permite ao usuário entrar na livraria e escolher o livro desejado entre as categorias disponiveis.
 
 * <i>Escolha entre Tecnologia, Mangá e Filosofia!</i>
@@ -26,7 +22,7 @@ Desenvolvemos o projeto, com o Portugol Studio, utilizando:
 
 * <i>Fluxograma utilizado:</i>
 
-<img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600" align="center">
+<center><img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600"></center>
 
 
 ## Autores
