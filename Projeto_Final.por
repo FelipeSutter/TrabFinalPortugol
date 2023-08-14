@@ -9,21 +9,25 @@ programa {
 	
 	cadeia livrosCatA[tamanhoListaLivros] = {"Código Limpo.", "Introdução à Inteligência Artificial: uma abordagem não técnica.", "HTML5 e CSS3: guia prático e visual."}
 	cadeia autorLivrosCatA[tamanhoListaLivros] = {"Robert Cecil Martin.","Tom Taulli.", "Elizabeth Castro."}
-	cadeia valorLivrosCatA[tamanhoListaLivros] = {"R$ 91,99.", "R$ 68,49.", "R$ 109,27."}
+	cadeia valorLivrosCatA[tamanhoListaLivros] = {"91,99.", "68,49.", "109,27."}
 	cadeia tituloLivroCatA[tamanhoListaLivros] = {"CLI", "IIA", "HTM"}
-	// cadeia descricaoLivroA[tamanhoListaLivros] = 
-	// cadeia estoqueLivroA[tamanhoListaLivros] =
+	cadeia descricaoLivroCatA[tamanhoListaLivros] = {"Boas práticas na escrita de software que você pode aplicar para obter uma maior legibilidade e manutenabilidade do seu código.", "O livro Introdução à Inteligência Artificial chega para equipar os leitores com uma compreensão fundamental e oportuna da IA e seu impacto.", "A abordagem de fácil visualização utiliza exemplos de códigos do mundo real para guiá-lo pelo aprendizado de HTML e CSS."} 
+	inteiro estoqueLivroCatA[tamanhoListaLivros] = {3, 2, 4}
 	
 	
 	cadeia livrosCatB[tamanhoListaLivros] = {"Akira (Vol. #1.)", "Dragon Ball Super (Vol. #1.)", "Card Captor Sakura (Vol. #2.)"}
 	cadeia autorLivrosCatB[tamanhoListaLivros] = {"Katsuhiro Otomo.", "Akira Toriyama.", "Nanase Ohkawa."}
-	cadeia valorLivrosCatB[tamanhoListaLivros] = {"R$ 80,31", "R$ 43,81", "R$ 23,92"}
+	cadeia valorLivrosCatB[tamanhoListaLivros] = {"80,31", "43,81", "23,92"}
 	cadeia tituloLivroCatB[tamanhoListaLivros] = {"AKR", "DBS", "CCS"}
+	cadeia descricaoLivroCatB[tamanhoListaLivros] = {"Nesta aventura cheia de ficção, Kaneda entra em cena para salvar o amigo, enquanto uma terrível e monstruosa entidade ameaça despertar.", "Alguns meses se passaram desde a grande luta entre Goku e Majin Boo. Mas uma nova ameaça vem para acabar com a paz. Parece que o próximo inimigo vem do Sexto Universo e nossos heróis mal podem esperar para enfrenta-lo e testar a sua força.", "Mais uma edição especial e imperdível da mais famosa Card Captor do mundo!"}
+	inteiro estoqueLivroCatB[tamanhoListaLivros] = {2, 4, 2}
 	
 	cadeia livrosCatC[tamanhoListaLivros] = {"Além do bem e do mal.", "O segundo sexo.", "Mulheres, raça e classe."}
 	cadeia autorLivrosCatC[tamanhoListaLivros] ={"Friedrich Nietzsche.", "Simone de Beauvior.", "Angela Davis."} 
-	cadeia valorLivrosCatC[tamanhoListaLivros] = {"R$ 27,99.", "R$ 99,90.", "R$ 51,78."}
+	cadeia valorLivrosCatC[tamanhoListaLivros] = {"27,99.", "99,90.", " 51,78."}
 	cadeia tituloLivroCatC[tamanhoListaLivros] = {"ABM", "OSX", "MRC"}
+	cadeia descricaoLivroCatC[tamanhoListaLivros] = {"Nietzsche considerava Além do bem e do mal seu livro mais importante e mais abrangente. Quase todos os temas de sua filosofia madura estão presentes aqui", "Pois, de O segundo sexo a A cerimônia do adeus, o empenho principal de Beauvoir foi o de construir uma nova identidade, sobretudo feminina, mas comum a todos na exigência da liberdade.", "Mulheres, raça e classe, de Angela Davis, é uma obra fundamental para se entender as nuances das opressões."}
+	inteiro estoqueLivroCatC[tamanhoListaLivros] = {4, 2, 3}
 
 	cadeia matrizLogins[5][2] = {{"Beatriz", "1234"}, {"Bruno", "5678"}, {"Cintia", "1510"}, {"Cristian", "9123"}, {"Felipe", "4567"}}
 	cadeia usuario=""
@@ -219,13 +223,15 @@ programa {
 		retorne ti.cadeia_para_inteiro(valor,10) //Retorna o valor opção selecionada para variável valor inteiro
 	}
 	
-	funcao desenhaLivro(cadeia titulo, cadeia valor, cadeia autor, cadeia tituloCapa){ //Mostra as opções dos produtos
+	funcao desenhaLivro(cadeia titulo, cadeia valor, cadeia autor, cadeia tituloCapa, cadeia descricao, inteiro estoque){ //Mostra as opções dos produtos
 		escreva("_________________________________________________________________________\n")
 		desenhaCapaIndiv(tituloCapa)
 		escreva("\n")
 		escreva("Livro: ", titulo, "\n")
 		escreva("Autor(a): ", autor, "\n")
-		escreva("Preço(a): ", valor, "\n")
+		escreva("Preço R$: ", valor, "\n")
+		escreva("Descrição: ", descricao, "\n")
+		escreva("Itens em estoque: ", estoque, "\n")
 		escreva("*\n")
 		
 	}
@@ -320,7 +326,7 @@ programa {
 					escreva("CATEGORIA: \n\n") 
 					escreva("TECNOLOGIA\n")
 					para (inteiro i = 0; i < tamanhoListaLivros; i++){ //Vai desenhar as capas dos itens
-						desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i])
+						desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i], descricaoLivroCatA[i], estoqueLivroCatA[i])
 						u.aguarde(2000) 
 					}
 					// Protótipo do carrinho(mensagens após aparecer os itens)
@@ -379,7 +385,7 @@ programa {
 					escreva("CATEGORIA: \n\n") // Categoria mangá
 					escreva("MANGÁ\n")
 					para (inteiro i = 0; i < tamanhoListaLivros; i++){
-						desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i])
+						desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i], descricaoLivroCatB[i], estoqueLivroCatB[i])
 						u.aguarde(2000)
 					}
 					escreva("_________________________________________________________________________\n\n")
@@ -436,7 +442,7 @@ programa {
 					escreva("\nCATEGORIA: \n\n") // Categoria de filosofia
 					escreva("FILOSOFIA\n")
 					para (inteiro i = 0; i < tamanhoListaLivros; i++){
-						desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i])
+						desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i], descricaoLivroCatC[i], estoqueLivroCatC[i])
 						u.aguarde(2000)
 					}
 					escreva("_________________________________________________________________________\n\n")
@@ -507,15 +513,19 @@ programa {
 			}
 		}
 	}
+<<<<<<< HEAD
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7162; 
+ * @POSICAO-CURSOR = 19089; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
+=======
+}
+>>>>>>> 134b6236fa126666b1437dbf37f578a77218cfa6
