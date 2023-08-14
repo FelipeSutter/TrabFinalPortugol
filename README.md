@@ -1,8 +1,39 @@
-<h1>Nome da loja </h1><br>
 
-<b>Breve descrição sobre a loja</b><br>
-- Explicar o que tem dentro da loja, texto somente na explicação da loja<br>
-- Dá pra colocar imagens, mostrar as categorias, etc, explicar o que tem na loja, separado por tópicos<br>
-- O que usou de tecnologia - portugol e a versão, colocar também o trello, uso do draw.io, imagem do fluxograma<br>
-- Nome dos integrantes - colocar com o link do github de cada um<br>
+<h1 align="center"> 📚 Bem vindos à Tech Books! 📚</h1>
+<base target="_blank">
+
+
+          
+          
+
+Um projeto que permite ao usuário entrar na livraria e escolher o livro desejado entre as categorias disponiveis.
+
+* <i>Escolha entre Tecnologia, Mangá e Filosofia!</i>
+
+* <i>Um sistema de menus intuitivos e organizados.</i>
+
+
+
+## Tecnologias utilizadas
+
+Desenvolvemos o projeto, com o Portugol Studio, utilizando:
+
+* <i>Variáveis, Operadores Lógicos, Laços de repetição e Vetores.</i>
+* <i>Util, Teclado, Texto e Tipos.</i>
+
+* <i>Link do trello utilizado:</i>
+  <a href="https://trello.com/b/lbvETDBl/projeto-final-l%C3%B3gica-de-programa%C3%A7%C3%A3o-livraria">Link do trello</a>
+
+* <i>Fluxograma utilizado:</i>
+
+<img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600" align="center">
+
+
+## Autores
+
+<img src="https://cdn.discordapp.com/attachments/1135262336819679372/1140675577733464254/github-logo-git-hub-icon-with-text-on-white-and-black-background-free-vector_2-removebg-preview.png" height="100" width="100" />
+
+- [Beatriz](https://github.com/beabarcel)  |  [Bruno](https://github.com/brunolimaptr) | [Cintia](https://github.com/Cintiaaaa) | [Cristian](https://github.com/leignel) | [Felipe](https://github.com/FelipeSutter)
+
+
 
