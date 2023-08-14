@@ -31,7 +31,7 @@ programa {
 	cadeia usuario2=""
 	cadeia senha2=""
 
-	funcao login(){
+	funcao login(){ //Função que pede o usuário e a senha
 		
 		escreva("Por favor, digite seu usuário: ")
 		leia(usuario)
@@ -40,7 +40,7 @@ programa {
 		limpa()
 	}
 
-	funcao desenhaLogo()
+	funcao desenhaLogo() //Função que mostra a logo de aberturaa do programa.
     {
         const inteiro LINHA = 5, COLUNA = 95
 
@@ -48,7 +48,7 @@ programa {
         escreva("                     ||T |||E |||C |||H |||       |||B |||O |||O |||K |||S ||\n")
         escreva("                     ||__|||__|||__|||__|||_______|||__|||__|||__|||__|||__||\n")
         escreva("                     |/__\\|/__\\|/__\\|/__\\|/_______\\|/__\\|/__\\|/__\\|/__\\|/__\\|\n\n\n")
-
+      //Desenho da logo
         para(inteiro i=0; i<LINHA; i++) {
             para(inteiro j=0; j<COLUNA; j++) {
                 se(i == 2 e j < 20) {
@@ -88,7 +88,7 @@ programa {
 		}
 	}
 	
-	funcao folhearPaginas() {
+	funcao folhearPaginas() { //Função que aparece folheando páginas
 		escreva("Folheando Páginas")
 		para(inteiro i = 0; i < 3; i++) {
 			escreva(".")
@@ -97,7 +97,7 @@ programa {
 		escreva("\n\n")
 	}
 
-	funcao inteiro menuPrincipal() {
+	funcao inteiro menuPrincipal() { //Menu
 		cadeia valor
 		faca {
 			limpa()
@@ -115,20 +115,20 @@ programa {
 			escreva("Digite a sua categoria desejada: ")
 			leia(valor)
 			limpa()
-			se(ti.cadeia_e_inteiro(valor,10) == falso) {
+			se(ti.cadeia_e_inteiro(valor,10) == falso) { //Caso o usuário coloque um caracter sem ser número
 				escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
 				folhearPaginas()
 				u.aguarde(500)
 			}
-			senao se(ti.cadeia_para_inteiro(valor,10) < 1 ou ti.cadeia_para_inteiro(valor,10) > 4) {
+			senao se(ti.cadeia_para_inteiro(valor,10) < 1 ou ti.cadeia_para_inteiro(valor,10) > 4) { //Mostra a msg caso o número seja menor que 1 ou maior que 4
       			escreva("Voce escolheu um número inválido. Por favor, escolha uma das opções apresentadas.\n")
 				u.aguarde(2000)
       		}
-		} enquanto(ti.cadeia_e_inteiro(valor,10) == falso)
-		retorne ti.cadeia_para_inteiro(valor,10)
+		} enquanto(ti.cadeia_e_inteiro(valor,10) == falso) //Vai repetir o menu se não for um número
+		retorne ti.cadeia_para_inteiro(valor,10) //Retorna o valor opção selecionada para variável valor inteiro
 	}
 
-	funcao inteiro mostrarProdutos() {
+	funcao inteiro mostrarProdutos() { //Vai ser retirada toda essa parte
 		
 		
 		inteiro numero
@@ -142,7 +142,7 @@ programa {
 		retorne numero
 	}
 	
-	funcao desenhaLivro(cadeia titulo, cadeia valor, cadeia autor, cadeia tituloCapa){
+	funcao desenhaLivro(cadeia titulo, cadeia valor, cadeia autor, cadeia tituloCapa){ //Mostra as opções dos produtos
 		escreva("_________________________________________________________________________\n")
 		desenhaCapaIndiv(tituloCapa)
 		escreva("\n")
@@ -153,7 +153,7 @@ programa {
 		
 	}
 
-	funcao desenhaCapaIndiv(cadeia letras){
+	funcao desenhaCapaIndiv(cadeia letras){ //Desenho de capa dos produtos
 		cadeia letra1 = x.extrair_subtexto(letras, 0, 1)
 		cadeia letra2 = x.extrair_subtexto(letras, 1, 2)
 		cadeia letra3 = x.extrair_subtexto(letras, 2, 3)
@@ -170,14 +170,14 @@ programa {
 		escreva("'---'\n")
 	}
 
-	funcao logico validarEntrada() {
+	funcao logico validarEntrada() { //Função que confirma se o usuário quer entrar na loja (Antes do login)
 		cadeia opcao
 		logico valida = falso
 		faca {
 			escreva("Deseja ter a melhor experiência literária da sua vida? S/N\n")
 			escreva("Digite o que o seu coração mandar: ")
 			leia(opcao)
-			se(ti.cadeia_e_caracter(opcao) == falso) {
+			se(ti.cadeia_e_caracter(opcao) == falso) { //Verifica se é um caracter, não deixa colocar cadeia
 				escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
 				u.aguarde(2000)
 				limpa()
@@ -185,74 +185,69 @@ programa {
 				limpa()
 				valida = falso
 			}
-			senao se(ti.cadeia_para_caracter(opcao) == 's' ou ti.cadeia_para_caracter(opcao) == 'S') {
+			senao se(ti.cadeia_para_caracter(opcao) == 's' ou ti.cadeia_para_caracter(opcao) == 'S') {  //Permite o usuário entrar se for s minúsculo ou maiúsculo
 				valida = verdadeiro
 			}
-			senao se(ti.cadeia_para_caracter(opcao) == 'n' ou ti.cadeia_para_caracter(opcao) == 'N') {
+			senao se(ti.cadeia_para_caracter(opcao) == 'n' ou ti.cadeia_para_caracter(opcao) == 'N') { //Permite o usuário sair se for n minúsculo ou maiúsculo
 				escreva("Obrigado pelo seu interesse!\n")
 				valida = falso
 			}
-		} enquanto(ti.cadeia_e_caracter(opcao) == falso)
-		retorne valida
+		} enquanto(ti.cadeia_e_caracter(opcao) == falso) //Vai repetir o menu enquanto não for um caracter
+		retorne valida //Foi criada uma variável para armazenar o tipo lógico e fazer a verificação de verdadeiro e falso
 	}
 	
 	funcao inicio() {
 
-		logico controlador = falso
-		logico verifica = falso
-		logico verifica1 = falso
-		cadeia opcao
-		desenhaLogo()
+		logico controlador = falso //Caracterizar se aopção de login é falsa ou verdadeira
+		logico verifica = falso //controlador do menu
+		logico verifica1 = falso //controlador do login
+		cadeia opcao //Serve para saber qual livro o usuário quer comprar
+		desenhaLogo() //Função que chama a logo 
 		u.aguarde(1500)
-		folhearPaginas()
+		folhearPaginas() //Função que aparece escrito folhear páginas
 		limpa()
-		enquanto(validarEntrada() == verdadeiro) {
+		enquanto(validarEntrada() == verdadeiro) { //Enquanto a entrada for verdadeiro deixa passar para o login
 			verifica1 = verdadeiro
-			enquanto(verifica1) {
-				login()
+			enquanto(verifica1) { //Verifica o login
+				login() //Faz o login se for verdadeiro
 				verifica = verdadeiro
-	     		enquanto(controlador == falso){	
-	  				para(inteiro i=0; i<5; i++){
+	     		enquanto(controlador == falso){ //Retorna para o login caso usuário digite login e senha errados
+	  				para(inteiro i=0; i<5; i++){ //Contador que confirma os 5 logins e senhas
    	  					se(usuario == matrizLogins[i][0] e senha == matrizLogins[i][1]){
-   							usuario2 = usuario
-   							senha2 = senha
+   							usuario2 = usuario //Criei uma váriavel que receberá um valor caso estiver correto 
+   							senha2 = senha //Criei uma váriavel que receberá um valor caso estiver correto 
 	        				}
 	  				}
 
-					/*para(inteiro i=0; i<1; i++){
-   	  					se(x.numero_caracteres(senha) < ti.cadeia_para_inteiro(matrizLogins[i][1],10)){
-   							escreva("Senha muito pequena!\n")
-   							login()
-	        				}
-	  				}*/
-	  			
-	   	     	se(usuario2 != "" e senha2 !=""){
+						  			
+	   	     	se(usuario2 != "" e senha2 !=""){ //Se o usuário e senha estiverem vazios é porque foi digitado errado ( a variável não recebeu nenhum valor)
 	        			escreva("Seja bem vindo(a), ",usuario2)
 	        			controlador=verdadeiro
 	        		}
-	        		senao {
+	        		senao {  // Mostra a mensagem na tela de se nha incorreta e volta pro login caso estejam incorretos
 	        			escreva("Usuario ou senha incorretas!\n")
 	        			login()
 	        			}
 	        		}
 		
-			enquanto(verifica) {
-				escolha(menuPrincipal()) {
-					caso 1:
-					escreva("CATEGORIA: \n\n") // opcao 1
+			enquanto(verifica) { //Enquanto for verdadeiro repetirá o menu principal
+				escolha(menuPrincipal()) { 
+					caso 1: //Mostra os itens de tecnologia
+					escreva("CATEGORIA: \n\n") 
 					escreva("TECNOLOGIA\n")
-					para (inteiro i = 0; i < tamanhoListaLivros; i++){
+					para (inteiro i = 0; i < tamanhoListaLivros; i++){ //Vai desenhar as capas dos itens
 						desenhaLivro(livrosCatA[i], valorLivrosCatA[i], autorLivrosCatA[i], tituloLivroCatA[i])
-						u.aguarde(2000)
+						u.aguarde(2000) 
 					}
+					// Protótipo do carrinho(mensagens após aparecer os itens)
 					escreva("_________________________________________________________________________\n\n")
 					escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
 					escreva("\nDigite a sua opção: ")
 					leia(opcao)
-					enquanto((ti.cadeia_e_inteiro(opcao,10) == falso) ou (ti.cadeia_para_inteiro(opcao,10) < 1) ou (ti.cadeia_para_inteiro(opcao,10) > 4)) {
+					enquanto((ti.cadeia_e_inteiro(opcao,10) == falso) ou (ti.cadeia_para_inteiro(opcao,10) < 1) ou (ti.cadeia_para_inteiro(opcao,10) > 4)) { //Enquanto as opções forem inválidas vai repetir
 					
 						se(ti.cadeia_e_inteiro(opcao,10) == falso){
-							escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
+							escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n") //Caso digite algo que não é inteiro
 							u.aguarde(2000)
 							limpa()
 							escreva("Digite o livro que você quer comprar: \n1 - ", livrosCatA[0],"\n2 - ", livrosCatA[1], "\n3 - ", livrosCatA[2], "\n4 - Sair")
@@ -268,7 +263,7 @@ programa {
 						}
 					}
 				
-					se(ti.cadeia_para_inteiro(opcao,10) == 1){
+					se(ti.cadeia_para_inteiro(opcao,10) == 1){ //Número do item comprado (todas opções)
 						limpa()
 						escreva("Você comprou o livro ",livrosCatA[0],"\nAguarde! Você será direcionado para o menu inicial.")
 						u.aguarde(3000)
@@ -297,7 +292,7 @@ programa {
 			 		pare
 			 	
 					caso 2:
-					escreva("CATEGORIA: \n\n") // opcao 2
+					escreva("CATEGORIA: \n\n") // Categoria mangá
 					escreva("MANGÁ\n")
 					para (inteiro i = 0; i < tamanhoListaLivros; i++){
 						desenhaLivro(livrosCatB[i], valorLivrosCatB[i], autorLivrosCatB[i], tituloLivroCatB[i])
@@ -354,7 +349,7 @@ programa {
 					pare
 
 					caso 3:
-					escreva("\nCATEGORIA: \n\n") // opcao 3
+					escreva("\nCATEGORIA: \n\n") // Categoria de filosofia
 					escreva("FILOSOFIA\n")
 					para (inteiro i = 0; i < tamanhoListaLivros; i++){
 						desenhaLivro(livrosCatC[i], valorLivrosCatC[i], autorLivrosCatC[i], tituloLivroCatC[i])
@@ -412,12 +407,12 @@ programa {
 				
 					pare
 
-					caso 4:
+					caso 4: //Opção do menu caso queira sair (Volta pro login)
 						escreva("Obrigado por utilizar a nossa biblioteca! Volte sempre.\n")
 						u.aguarde(2000)
 						folhearPaginas()
 						limpa()
-						controlador = falso
+						controlador = falso 
 						verifica = falso
 						verifica1 = falso
 					pare
@@ -427,14 +422,3 @@ programa {
 		}
 	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 6792; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
