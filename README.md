@@ -26,7 +26,7 @@ Desenvolvemos o projeto, com o Portugol Studio, utilizando:
 
 * <i>Fluxograma utilizado:</i>
 
-<img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600">
+<img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600" align="center">
 
 
 ## Autores
