@@ -22,7 +22,7 @@ Desenvolvemos o projeto, com o Portugol Studio, utilizando:
 * <i>Util, Teclado, Texto e Tipos.</i>
 
 * <i>Link do trello utilizado:</i>
-  <a href="https://trello.com/b/lbvETDBl/projeto-final-l%C3%B3gica-de-programa%C3%A7%C3%A3o-livraria" target="_blank">Link do trello</a>
+  <a href="https://trello.com/b/lbvETDBl/projeto-final-l%C3%B3gica-de-programa%C3%A7%C3%A3o-livraria" base target="_blank">Link do trello</a>
 
 * <i>Fluxograma utilizado:</i>
 
