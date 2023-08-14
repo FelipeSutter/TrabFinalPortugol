@@ -9,20 +9,23 @@ Um projeto que permite ao usuário entrar na livraria e escolher o livro desejad
 
 
 
-Tecnologias utilizadas
+## Tecnologias utilizadas
 Desenvolvemos o projeto, com o Portugol Studio, utilizando:
 
-<i>Variáveis, Operadores Lógicos, Laços de repetição e Vetores.</i>
-<i>Util, Teclado, Texto e Tipos.</i>
+* <i>Variáveis, Operadores Lógicos, Laços de repetição e Vetores.</i>
+* <i>Util, Teclado, Texto e Tipos.</i>
 
-<i>Link do trello utilizado:</i><a href="https://trello.com/b/lbvETDBl/projeto-final-l%C3%B3gica-de-programa%C3%A7%C3%A3o-livraria%22%3ELink do trello</a>
+* <i>Link do trello utilizado:</i>
+<a href="https://trello.com/b/lbvETDBl/projeto-final-l%C3%B3gica-de-programa%C3%A7%C3%A3o-livraria%22%3E">Link do trello</a>
 
-<i>Fluxograma utilizado:</i>
+* <i>Fluxograma utilizado:</i>
 
 <center><img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600"></center>
 
 
-Autores
+## Autores
 <img src="https://cdn.discordapp.com/attachments/1135262336819679372/1140675577733464254/github-logo-git-hub-icon-with-text-on-white-and-black-background-free-vector_2-removebg-preview.png" height="100" width="100" />
 
-Beatriz  |  Bruno | Cintia | Cristian | Felipe
+
+- [Beatriz](https://github.com/beabarcel) | [Bruno](https://github.com/brunolimaptr) | [Cintia](https://github.com/Cintiaaaa) | [Cristian](https://github.com/leignel) | [Felipe](https://github.com/FelipeSutter)
+
