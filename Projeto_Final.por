@@ -30,6 +30,7 @@ programa {
 	cadeia senha=""
 	cadeia usuario2=""
 	cadeia senha2=""
+	inteiro easterEgg = 0
 
 	funcao login(){ //Função que pede o usuário e a senha
 		
@@ -97,6 +98,52 @@ programa {
 		escreva("\n\n")
 	}
 
+	funcao destruicao() {
+		escreva("Destruição em 3")
+		para(inteiro i = 0; i < 3; i++) {
+			escreva(".")
+			u.aguarde(500)
+		}
+		escreva("\n2")
+		para(inteiro i = 0; i < 3; i++) {
+			escreva(".")
+			u.aguarde(500)
+		}
+		escreva("\n1")
+		para(inteiro i = 0; i < 3; i++) {
+			escreva(".")
+			u.aguarde(500)
+		}
+	}
+
+	funcao explosao() {
+		logico abc = verdadeiro
+		enquanto(abc) {
+			escreva("   		__,-~~/~    `---.")
+    			u.aguarde(20)
+    			escreva("\n              _/_,---(      ,    )")
+    			u.aguarde(20)
+    			escreva("\n          __ /        <    /   )  \\___")
+    			u.aguarde(20)
+    			escreva("\n- ------===;;;'====------------------===;;;===----- -  -")
+    			u.aguarde(20)
+    			escreva("\n              \\/  ~\"~\"~\"~\"~\"~\\~\"~)~\"/")
+    			u.aguarde(20)
+    			escreva("\n              (_ (   \\  (     >    \\)")
+    			u.aguarde(20)
+    			escreva("\n               \\_( _ <         >_>'")
+    			u.aguarde(20)
+    			escreva("\n                  ~ `-i' ::>|--\"")
+    			u.aguarde(20)
+    			escreva("\n                      I;|.|.|")
+    			u.aguarde(20)
+    			escreva("\n                     <|i::|i|`.")
+    			u.aguarde(20)
+    			escreva("\n                    (` ^'\"`-' \")")
+    			escreva("\n\n")
+		}
+	}
+
 	funcao inteiro menuPrincipal() { //Menu
 		cadeia valor
 		faca {
@@ -115,10 +162,54 @@ programa {
 			escreva("Digite a sua categoria desejada: ")
 			leia(valor)
 			limpa()
-			se(ti.cadeia_e_inteiro(valor,10) == falso) { //Caso o usuário coloque um caracter sem ser número
+			se(ti.cadeia_e_inteiro(valor,10) == falso e easterEgg == 0) { //Caso o usuário coloque um caracter sem ser número
 				escreva("Hey, parece que você está tentando burlar o sistema. Voltando ao menu.\n\n")
+				easterEgg++
 				folhearPaginas()
 				u.aguarde(500)
+			}
+			senao se (ti.cadeia_e_inteiro(valor,10) == falso e easterEgg == 1) { 
+				escreva("De novo isso? Voltando ao menu.\n\n")
+				easterEgg++
+				folhearPaginas()
+				u.aguarde(500)
+			}
+			senao se (ti.cadeia_e_inteiro(valor,10) == falso e easterEgg == 2) { 
+				escreva("Você ainda não aprendeu a lição?\n\n")
+				easterEgg++
+				folhearPaginas()
+				u.aguarde(500)
+			}
+			senao se (ti.cadeia_e_inteiro(valor,10) == falso e easterEgg == 3) { 
+				escreva("Para, não tem nenhum easter egg aqui.\n\n")
+				easterEgg++
+				folhearPaginas()
+				u.aguarde(500)
+			}
+			senao se (ti.cadeia_e_inteiro(valor,10) == falso e easterEgg == 4) { 
+				escreva("...\n\n")
+				easterEgg++
+				folhearPaginas()
+				u.aguarde(500)
+			}
+			senao se (ti.cadeia_e_inteiro(valor,10) == falso e easterEgg == 5) { 
+				escreva("Eu estou avisando, é melhor parar.\n\n")
+				easterEgg++
+				folhearPaginas()
+				u.aguarde(500)
+			}
+			senao se (ti.cadeia_e_inteiro(valor,10) == falso e easterEgg == 6) { 
+				escreva("Último aviso.\n\n")
+				easterEgg++
+				folhearPaginas()
+				u.aguarde(500)
+			}
+			senao se (ti.cadeia_e_inteiro(valor,10) == falso e easterEgg == 7) { 
+				escreva("Eu avisei o suficiente, agora serei obrigado a explodir o PC.\n\n")
+				destruicao()
+				limpa()
+				explosao()
+
 			}
 			senao se(ti.cadeia_para_inteiro(valor,10) < 1 ou ti.cadeia_para_inteiro(valor,10) > 4) { //Mostra a msg caso o número seja menor que 1 ou maior que 4
       			escreva("Voce escolheu um número inválido. Por favor, escolha uma das opções apresentadas.\n")
@@ -126,20 +217,6 @@ programa {
       		}
 		} enquanto(ti.cadeia_e_inteiro(valor,10) == falso) //Vai repetir o menu se não for um número
 		retorne ti.cadeia_para_inteiro(valor,10) //Retorna o valor opção selecionada para variável valor inteiro
-	}
-
-	funcao inteiro mostrarProdutos() { //Vai ser retirada toda essa parte
-		
-		
-		inteiro numero
-		faca{
-			escreva("Escolha entre os livros:\n1-livro1\n2-livro2\n3-livro3\n4-Sair\n")
-          	leia(numero)
-          	se(numero < 1 ou numero > 4) {
-          		escreva("Opção invalida!\n")
-          	}	
-		} enquanto(numero < 1 ou numero > 4)
-		retorne numero
 	}
 	
 	funcao desenhaLivro(cadeia titulo, cadeia valor, cadeia autor, cadeia tituloCapa){ //Mostra as opções dos produtos
@@ -172,6 +249,7 @@ programa {
 
 	funcao logico validarEntrada() { //Função que confirma se o usuário quer entrar na loja (Antes do login)
 		cadeia opcao
+		caracter letra = 'a'
 		logico valida = falso
 		faca {
 			escreva("Deseja ter a melhor experiência literária da sua vida? S/N\n")
@@ -192,44 +270,50 @@ programa {
 				escreva("Obrigado pelo seu interesse!\n")
 				valida = falso
 			}
+			senao { //Permite o usuário sair se for n minúsculo ou maiúsculo
+				escreva("Parece que você digitou um caracter errado!\n")
+				u.aguarde(2000)
+				limpa()
+				folhearPaginas()
+				limpa()
+				valida = falso
+			}
 		} enquanto(ti.cadeia_e_caracter(opcao) == falso) //Vai repetir o menu enquanto não for um caracter
 		retorne valida //Foi criada uma variável para armazenar o tipo lógico e fazer a verificação de verdadeiro e falso
 	}
 	
 	funcao inicio() {
 
-		logico controlador = falso //Caracterizar se aopção de login é falsa ou verdadeira
-		logico verifica = falso //controlador do menu
-		logico verifica1 = falso //controlador do login
-		cadeia opcao //Serve para saber qual livro o usuário quer comprar
-		desenhaLogo() //Função que chama a logo 
+		logico controlador = falso // Caracterizar se opção de login é falsa ou verdadeira
+		logico verifica = falso // controlador do menu
+		logico verifica1 = falso // controlador do login
+		cadeia opcao // Serve para saber qual livro o usuário quer comprar
+		desenhaLogo() // Função que chama a logo 
 		u.aguarde(1500)
-		folhearPaginas() //Função que aparece escrito folhear páginas
+		folhearPaginas() // Função que aparece escrito folhear páginas
 		limpa()
 		enquanto(validarEntrada() == verdadeiro) { //Enquanto a entrada for verdadeiro deixa passar para o login
 			verifica1 = verdadeiro
-			enquanto(verifica1) { //Verifica o login
-				login() //Faz o login se for verdadeiro
-				verifica = verdadeiro
-	     		enquanto(controlador == falso){ //Retorna para o login caso usuário digite login e senha errados
-	  				para(inteiro i=0; i<5; i++){ //Contador que confirma os 5 logins e senhas
+			enquanto(verifica1) { // Verifica o login
+	     		faca{ 
+	     			login()// Retorna para o login caso usuário digite login e senha errados
+	  				para(inteiro i=0; i<5; i++){ // Contador que confirma os 5 logins e senhas
    	  					se(usuario == matrizLogins[i][0] e senha == matrizLogins[i][1]){
-   							usuario2 = usuario //Criei uma váriavel que receberá um valor caso estiver correto 
-   							senha2 = senha //Criei uma váriavel que receberá um valor caso estiver correto 
+   							usuario2 = usuario // Criei uma váriavel que receberá um valor caso estiver correto 
+   							senha2 = senha // Criei uma váriavel que receberá um valor caso estiver correto 
 	        				}
-	  				}
-
-						  			
-	   	     	se(usuario2 != "" e senha2 !=""){ //Se o usuário e senha estiverem vazios é porque foi digitado errado ( a variável não recebeu nenhum valor)
-	        			escreva("Seja bem vindo(a), ",usuario2)
-	        			controlador=verdadeiro
-	        		}
-	        		senao {  // Mostra a mensagem na tela de se nha incorreta e volta pro login caso estejam incorretos
-	        			escreva("Usuario ou senha incorretas!\n")
-	        			login()
+	  				} 			
+	   	     		se(usuario2 != usuario e senha2 != senha){ //Se o usuário e senha estiverem vazios é porque foi digitado errado ( a variável não recebeu nenhum valor)
+	        				escreva("Usuario ou senha incorretas!\n")
+	        				controlador = falso
 	        			}
-	        		}
-		
+	        			senao {  // Mostra a mensagem na tela de se nha incorreta e volta pro login caso estejam incorretos
+	        				escreva("Seja bem vindo(a), ", usuario2,"!\n")
+	        				controlador = verdadeiro
+	        			}
+	        		} enquanto(controlador == falso)
+	        		
+			verifica = verdadeiro
 			enquanto(verifica) { //Enquanto for verdadeiro repetirá o menu principal
 				escolha(menuPrincipal()) { 
 					caso 1: //Mostra os itens de tecnologia
@@ -412,6 +496,8 @@ programa {
 						u.aguarde(2000)
 						folhearPaginas()
 						limpa()
+						usuario = ""
+						senha = ""
 						controlador = falso 
 						verifica = falso
 						verifica1 = falso
@@ -422,3 +508,14 @@ programa {
 		}
 	}
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 19179; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
