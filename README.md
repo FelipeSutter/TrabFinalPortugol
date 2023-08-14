@@ -13,7 +13,11 @@ Um projeto que permite ao usuário entrar na livraria e escolher o livro desejad
 Desenvolvemos o projeto, com o Portugol Studio, utilizando:
 
 * <i>Variáveis, Operadores Lógicos, Laços de repetição e Vetores.</i>
-* <i>Util, Teclado, Texto e Tipos.</i>
+
+Bibliotecas utilizadas:
+* <i>Util, Texto e Tipos.</i>
+
+
 
 * <i>Link do trello utilizado:</i>
 <a href="https://trello.com/b/lbvETDBl/projeto-final-l%C3%B3gica-de-programa%C3%A7%C3%A3o-livraria%22%3E">Link do trello</a>
