@@ -1,8 +1,9 @@
 
-<h1 align="center"> 👉 Bem vindos à Tech Books! 👈</h1>
+<h1 align="center"> 📚 Bem vindos à Tech Books! 📚</h1>
 
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" height="80" width="80" />
+
+          
           
 
 Um projeto que permite ao usuário entrar na livraria e escolher o livro desejado entre as categorias disponiveis.
@@ -12,25 +13,27 @@ Um projeto que permite ao usuário entrar na livraria e escolher o livro desejad
 * <i>Um sistema de menus intuitivos e organizados.</i>
 
 
-## 🔗 Links
-[![portfolio](https://img.shields.io/badge/portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/FelipeSutter/TrabFinalPortugol/tree/main)
 
-
-
-## Stack utilizada
+## Tecnologias utilizadas
 
 Desenvolvemos o projeto, com o Portugol Studio, utilizando:
 
 * <i>Variáveis, Operadores Lógicos, Laços de repetição e Vetores.</i>
-* <i>Util, Teclado e Texto.</i>
+* <i>Util, Teclado, Texto e Tipos.</i>
+
+* <i>Link do trello utilizado:</i>
+  [trello](https://trello.com/b/lbvETDBl/projeto-final-l%C3%B3gica-de-programa%C3%A7%C3%A3o-livraria)
+
+* <i>Fluxograma utilizado:</i>
+
+<img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600">
 
 
 ## Autores
 
-- [Beatriz](https://github.com/beabarcel)
-- [Bruno](https://github.com/brunolimaptr)
-- [Cintia](https://github.com/Cintiaaaa)
-- [Cristian](https://github.com/leignel)
-- [Felipe](https://github.com/FelipeSutter)
+<img src="https://cdn.discordapp.com/attachments/1135262336819679372/1140675577733464254/github-logo-git-hub-icon-with-text-on-white-and-black-background-free-vector_2-removebg-preview.png" height="100" width="100" />
+
+- [Beatriz](https://github.com/beabarcel)  |  [Bruno](https://github.com/brunolimaptr) | [Cintia](https://github.com/Cintiaaaa) | [Cristian](https://github.com/leignel) | [Felipe](https://github.com/FelipeSutter)
+
 
 
