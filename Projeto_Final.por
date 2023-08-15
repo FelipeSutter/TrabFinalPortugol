@@ -29,7 +29,7 @@ programa {
 	cadeia descricaoLivroCatC[tamanhoListaLivros] = {"Nietzsche considerava Além do bem e do mal seu livro mais importante e mais abrangente. Quase todos os temas de sua filosofia madura estão presentes aqui", "Pois, de O segundo sexo a A cerimônia do adeus, o empenho principal de Beauvoir foi o de construir uma nova identidade, sobretudo feminina, mas comum a todos na exigência da liberdade.", "Mulheres, raça e classe, de Angela Davis, é uma obra fundamental para se entender as nuances das opressões."}
 	inteiro estoqueLivroCatC[tamanhoListaLivros] = {4, 2, 3}
 
-	cadeia matrizLogins[5][2] = {{"Beatriz", "1234"}, {"Bruno", "5678"}, {"Cintia", "1510"}, {"Cristian", "9123"}, {"Felipe", "4567"}}
+	cadeia matrizLogins[6][2] = {{"Beatriz", "1234"}, {"Bruno", "5678"}, {"Cintia", "1510"}, {"Cristian", "9123"}, {"Felipe", "4567"}, {"Déby", "2345678"}}
 	cadeia usuario=""
 	cadeia senha=""
 	cadeia usuario2=""
@@ -102,7 +102,7 @@ programa {
 		escreva("\n\n")
 	}
 
-	funcao destruicao() {
+	funcao destruicao() { // mostra os pontinhos na destruição
 		escreva("Destruição em 3")
 		para(inteiro i = 0; i < 3; i++) {
 			escreva(".")
@@ -120,7 +120,7 @@ programa {
 		}
 	}
 
-	funcao explosao() {
+	funcao explosao() { // desenho da explosão
 		logico abc = verdadeiro
 		enquanto(abc) {
 			escreva("   		__,-~~/~    `---.")
@@ -303,7 +303,7 @@ programa {
 			enquanto(verifica1) { // Verifica o login
 	     		faca{ 
 	     			login()// Retorna para o login caso usuário digite login e senha errados
-	  				para(inteiro i=0; i<5; i++){ // Contador que confirma os 5 logins e senhas
+	  				para(inteiro i=0; i<6; i++){ // Contador que confirma os 5 logins e senhas
    	  					se(usuario == matrizLogins[i][0] e senha == matrizLogins[i][1]){
    							usuario2 = usuario // Criei uma váriavel que receberá um valor caso estiver correto 
    							senha2 = senha // Criei uma váriavel que receberá um valor caso estiver correto 
@@ -513,19 +513,15 @@ programa {
 			}
 		}
 	}
-<<<<<<< HEAD
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 19089; 
+ * @POSICAO-CURSOR = 14786; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
-=======
-}
->>>>>>> 134b6236fa126666b1437dbf37f578a77218cfa6
