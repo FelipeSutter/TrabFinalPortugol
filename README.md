@@ -24,7 +24,7 @@ Bibliotecas utilizadas:
 
 * <i>Fluxograma utilizado:</i>
 
-<center><img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600"></center>
+<div align="center"><img src="https://cdn.discordapp.com/attachments/1135262336819679372/1139981119421435904/Fluxograma_Grupo_1_-_Login.drawio_1.png" height="800" width="600"></div>
 
 
 ## Autores
